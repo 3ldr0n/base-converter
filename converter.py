@@ -23,16 +23,16 @@ class Converter():
 
 
     def convert_int_to_decimal(self, base):
-        decimal = []
+        decimal = 0
         # Gets each digit of the number. 
         for each_digit in enumerate(reversed(self.number)):
             result = int(each_digit[1]) * (base**each_digit[0])
             print("{} * {}^{} = {}".format(
                     each_digit[1], base, each_digit[0], result))
 
-            decimal.append(result)
+            decimal += result
 
-        print("Final result: {}".format(sum(decimal)))
+        print("Final result: {}".format(decimal))
 
 
     def convert_float_to_decimal(self, base):
@@ -51,27 +51,23 @@ class Converter():
         for number in number_float_part:
             number_float_part_reversed.append(number)
 
-        float_results = []
+        float_results = 0
         for index in range(negative_length, 0):
             result = int(number_float_part_reversed[index]) * (base**index)
             print("{} * {}^{} = {}".format(
                     number_float_part_reversed[index], base, index, result))
-            float_results.append(result)
-
-        float_final_sum = sum(float_results)
+            float_results += result
 
         # Calculus of the integer part.
-        integer_results = []
+        integer_results = 0
         for each_digit in enumerate(reversed(number_integer_part)):
             result = int(each_digit[1]) * (base**each_digit[0])
             print("{} * {}^{} = {}".format(
                     each_digit[1], base, each_digit[0], result))
 
-            integer_results.append(result)
+            integer_results += result
 
-        integer_final_sum = sum(integer_results)
-
-        final_result = integer_final_sum + float_final_sum
+        final_result = integer_results + float_results
         print(final_result)
 
     def convert_hexadecimal_to_decimal(self):
@@ -121,28 +117,24 @@ class Converter():
         for number in number_float_part:
             number_float_part_reversed.append(number)
 
-        float_results = []
+        float_results = 0
         for index in range(negative_length, 0):
             result = int(number_float_part_reversed[index]) ** (base**index)
             print("{} * {}^{} = {}".format(
                     number_float_part_reversed[index], base, index, result))
 
-            float_results.append(result)
-
-        float_final_sum = sum(float_results)
+            float_results += result
 
         # Integer calculus
-        integer_results = []
+        integer_results = 0
         for each_digit in enumerate(reversed(int_number_in_decimal)):
             result = int(each_digit[1]) * (base**each_digit[0])
             print("{} * {}^{} = {}".format(
                     each_digit[1], base, each_digit[0], result))
 
-            integer_results.append(result)
+            integer_results += result
 
-        integer_final_sum = sum(integer_results)
-
-        final_result = integer_final_sum + float_final_sum
+        final_result = integer_results + float_results
         print(final_result)
 
 
