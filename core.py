@@ -18,6 +18,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 from converter import Converter
 
+
 def get_base():
     number = ''
     while type(number) != "int":
@@ -25,10 +26,11 @@ def get_base():
         try:
             number = int(number)
             return number
-        except:
+        except ValueError:
             print("This should be a number")
 
     return number
+
 
 if __name__ == '__main__':
     number = str(input("Type the number: "))
