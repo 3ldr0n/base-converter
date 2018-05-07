@@ -1,6 +1,6 @@
 """
 Edison Neto, This software simply converts a number in some numerical
-base to decimal
+base to decimal.
 
 Copyright (C) 2018 Edison Neto
 This program is free software; you can redistribute it and/or
@@ -16,15 +16,15 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """
 
+
 class Converter():
 
     def __init__(self, number):
         self.number = number
 
-
     def convert_int_to_decimal(self, base):
         decimal = 0
-        # Gets each digit of the number. 
+        # Gets each digit of the number.
         for each_digit in enumerate(reversed(self.number)):
             result = int(each_digit[1]) * (base**each_digit[0])
             print("{} * {}^{} = {}".format(
@@ -33,7 +33,6 @@ class Converter():
             decimal += result
 
         print("Final result: {}".format(decimal))
-
 
     def convert_float_to_decimal(self, base):
         # This separates the number into the integer part and the float part.
@@ -137,20 +136,18 @@ class Converter():
         final_result = integer_results + float_results
         print(final_result)
 
-
     def is_int(self):
         # Checks if the variable is an integer.
         try:
             int(self.number)
             return True
-        except:
+        except ValueError:
             return False
-
 
     def is_float(self):
         # Checks if the variable is a number.
         try:
             float(self.number)
             return True
-        except:
+        except ValueError:
             return False
